@@ -1,22 +1,29 @@
 import math
 HexInput = input("Enter Hex string:")
-binaryconverted = str(bin(int(HexInput, 16)))
+binaryconverted = str(bin(int(HexInput, 16)).split('0b')[1])
+lengthbinaryconverted = len(binaryconverted)
 count = 0
 block = ""
 blocks =[]
-#0b[strats from here]1010100101001001
-for i in range(2,len(binaryconverted)):
+blockcount =0
+#0b[strats from here]101010 010100 1001
+numblock =  math.ceil(len(binaryconverted)/6)
+print(numblock)
+for i in range(0,len(binaryconverted)):
     if(count < 6):
+        #creates each block
         block = block + binaryconverted[i]
         count =count + 1
-        
     if(count == 6):
+        #adds block to blocks
         blocks.append(block)
         count = 0
-        block = ""
-
-
-print(blocks)
+    elif(count<6 and i == lengthbinaryconverted-1  ):
+        #append zeroes at the end (6 - lengthof block)
+        block = block + '0'*(6 - len(block))
+        blocks.append(block)
+        count = 0
+        
 total =0
 final = []
 for eachblock in blocks:
@@ -27,7 +34,6 @@ for eachblock in blocks:
                total = total + 2 ^ bit
         final.append(total)
         total =0
+
 print(final)
-
-
 
