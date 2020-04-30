@@ -10,6 +10,7 @@ strlength = len(Hex)
 if( Hex != 0 and  strlength > 1 ):
     #0b[strats from here]101010 010100 1001
     binaryconverted = str(bin(int(Hex, 16)).split('0b')[1])
+
     print(binaryconverted)
     lengthbinaryconverted = len(binaryconverted)
 
@@ -38,7 +39,6 @@ if( Hex != 0 and  strlength > 1 ):
             if(len(j)<8 ):
                 k =  (8-len(k))*'0'+k
             b1 = l+j+k
-
         else:
             break
         if(len(b1) == 8):
