@@ -9,7 +9,7 @@ for sample in samples:
   print(hex(L),hex(R))
 
 
-    s = serial.Serial('COM4', baudrate=9600)
+    s = serial.Serial('COM4', baudrate=2000000)
 
 FSample, samples = scipy.io.wavfile.read('1.wav')
 
